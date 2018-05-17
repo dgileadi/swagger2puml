@@ -3,15 +3,16 @@ hide empty members
 set namespaceSeparator none
 
 skinparam class {
-	BackgroundColor PaleGreen
+	{{#classDiagrams.size}}BackgroundColor PaleGreen{{/classDiagrams.size}}
+	{{#entityDiagrams.size}}BackgroundColor AliceBlue{{/entityDiagrams.size}}
 	ArrowColor RoyalBlue
 	BorderColor DimGray
 }
 
 {{#classDiagrams}}
 {{#isClass}}class{{/isClass}} {{^isClass}}enum{{/isClass}} {{className}} {{#superClass}} < ? extends {{superClass}}> {{/superClass}}{
-	 {{#fields}}	
-	 - {{#name}}{{name}}{{/name}} {{#dataType}}<b>:{{dataType}}</b>{{/dataType}} 
+	 {{#fields}}
+	 - {{#name}}{{name}}{{/name}} {{#dataType}}<b>:{{dataType}}</b>{{/dataType}}
 	 {{/fields}}
 }
 
@@ -26,8 +27,27 @@ interface {{interfaceName}} {
 
 {{/interfaceDiagrams}}
 
+{{#classRelations}}
+{{source}} {{#isExtension}}-->{{/isExtension}} {{#isComposition}}*--{{/isComposition}} {{#cardinality}}"{{cardinality}}"{{/cardinality}}  {{target}}
+{{/classRelations}}
+
+{{#entityDiagrams}}
+entity {{name}} {
+	 {{#keyFields}}
+	 * {{#name}}{{name}}{{/name}} {{#dataType}}<color:gray>:{{dataType}}</color>{{/dataType}}
+	 {{/keyFields}}
+	 {{^keyFields.empty}}
+	 --
+	 {{/keyFields.empty}}
+	 {{#fields}}
+	 {{#required}}* {{/required}}{{#name}}{{name}}{{/name}} {{#dataType}}<color:gray>:{{dataType}}</color>{{/dataType}}
+	 {{/fields}}
+}
+
+{{/entityDiagrams}}
+
 {{#entityRelations}}
-{{sourceClass}} {{#isExtension}}-->{{/isExtension}} {{#isComposition}}*--{{/isComposition}} {{#cardinality}}"{{cardinality}}"{{/cardinality}}  {{targetClass}} 
+{{source}}::{{sourceField}} {{#required}}--{{/required}}{{^required}}..{{/required}}{{#many}}{{curly}}{{/many}} {{target}}
 {{/entityRelations}}
 
 note as N1

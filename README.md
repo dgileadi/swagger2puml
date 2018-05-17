@@ -51,9 +51,9 @@ java -jar swagger2puml.jar [options]
 
 -i {Path of Swagger Definition (Can be either Yaml or json)}
 -o {Target location where Puml File and Image should generated}
--generateDefinitionModelOnly {true/flase Defult False (Optional)}
--includeCardinality {true/flase Defult true (Optional)}
--includeCardinality {true/flase Defult true (Optional)}
+-type {full/model/entity Default full (Optional)}
+-includeCardinality {true/flase Default true (Optional)}
+-generateSvg {true/flase Default true (Optional)}
 ```
 
 ## swagger2puml-maven

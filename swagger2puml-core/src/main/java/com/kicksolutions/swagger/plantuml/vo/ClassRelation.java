@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.kicksolutions.swagger.plantuml.vo;
 
@@ -7,33 +7,33 @@ package com.kicksolutions.swagger.plantuml.vo;
  * @author MSANTOSH
  *
  */
-public class ClassRelation {
+public class ClassRelation implements Relation {
 
-	private String targetClass;
+	private String target;
 	private boolean isExtension;
 	private boolean isComposition;
 	private String cardinality;
-	private String sourceClass;
-	
+	private String source;
+
 	public ClassRelation() {
 		super();
 	}
-	
-	public ClassRelation(String targetClass, boolean isExtension, boolean isComposition,String cardinality,String sourceClass) {
+
+	public ClassRelation(String target, boolean isExtension, boolean isComposition,String cardinality,String source) {
 		super();
-		this.targetClass = targetClass;
+		this.target = target;
 		this.isExtension = isExtension;
 		this.isComposition = isComposition;
 		this.cardinality = cardinality;
-		this.sourceClass = sourceClass;
+		this.source = source;
 	}
 
-	public String getTargetClass() {
-		return targetClass;
+	public String getTarget() {
+		return target;
 	}
 
-	public void setTargetClass(String targetClass) {
-		this.targetClass = targetClass;
+	public void setTarget(String target) {
+		this.target = target;
 	}
 
 	public boolean isExtension() {
@@ -60,17 +60,17 @@ public class ClassRelation {
 		this.cardinality = cardinality;
 	}
 
-	public String getSourceClass() {
-		return sourceClass;
+	public String getSource() {
+		return source;
 	}
 
-	public void setSourceClass(String sourceClass) {
-		this.sourceClass = sourceClass;
+	public void setSource(String source) {
+		this.source = source;
 	}
 
 	@Override
 	public String toString() {
-		return "ClassRelation [targetClass=" + targetClass + ", isExtension=" + isExtension + ", isComposition="
-				+ isComposition + ", cardinality=" + cardinality + ", sourceClass=" + sourceClass + "]";
+		return "ClassRelation [target=" + target + ", isExtension=" + isExtension + ", isComposition="
+				+ isComposition + ", cardinality=" + cardinality + ", source=" + source + "]";
 	}
 }

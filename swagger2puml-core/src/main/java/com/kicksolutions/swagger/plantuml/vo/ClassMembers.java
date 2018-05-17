@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.kicksolutions.swagger.plantuml.vo;
 
@@ -7,13 +7,13 @@ package com.kicksolutions.swagger.plantuml.vo;
  * @author MSANTOSH
  *
  */
-public class ClassMembers {
+public class ClassMembers implements Member {
 
 	private String dataType;
 	private String name;
 	private String className;
 	private String cardinality;
-	
+
 	public ClassMembers() {
 		super();
 	}
@@ -62,5 +62,5 @@ public class ClassMembers {
 	public String toString() {
 		return "ClassMembers [dataType=" + dataType + ", name=" + name + ", className=" + className + ", cardinality="
 				+ cardinality + "]";
-	}	
+	}
 }
